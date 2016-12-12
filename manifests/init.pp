@@ -6,12 +6,10 @@ class lamp {
                 package { "php":}
                 package { "gedit":}
 
-
-        file { "/var/www/html/index.php":
+	file { "/var/www/html/index.php":
 		content => template ("lamp/index.php"),
-		require => Package ["apache2],
+		ensure => "directory",
 	}
-
 
         file { "/etc/skel/public_html":
                 ensure => "directory",
